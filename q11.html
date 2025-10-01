@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>HR Панель</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Система управления персоналом</h1>
+  </header>
+  <section class="add-employee">
+  <h2>➕ Добавить сотрудника</h2>
+  <form id="addEmployeeForm">
+    <div class="form-group">
+      <label>Ф.И.О.</label>
+      <input type="text" name="full_name" placeholder="Введите Ф.И.О." required>
+    </div>
+    <div class="form-group">
+      <label>Дата приёма</label>
+      <input type="date" name="hire_date" required>
+    </div>
+    <div class="form-group">
+      <label>Отдел</label>
+      <select name="department_id" required>
+        <option value="">Выберите отдел</option>
+        <option value="1">Отдел 1</option>
+        <option value="2">Отдел 2</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-add">Добавить сотрудника</button>
+  </form>
+</section>
+
+  <section class="stats">
+    <div class="card"><span>👥 Активные:</span> <strong id="activeCount">7</strong></div>
+    <div class="card"><span>📤 Уволенные:</span> <strong id="firedCount">1</strong></div>
+    <div class="card"><span>🏢 Отделов:</span> <strong id="departmentCount">5</strong></div>
+    <div class="card"><span>⏳ Истекающие:</span> <strong id="expiringCount">0</strong></div>
+  </section>
+
+  <nav class="tabs">
+
+    <a href="panel.html">
+    <button class="tab active" data-tab="main">📊 Панель</button>
+    </a>
+
+    <a href="panel.html">
+    <button class="tab" data-tab="departments">🏢 По отделам</button>
+  </a>
+
+    <a href="panel.html">
+    <button class="tab" data-tab="contracts">⏳ Истекающие</button>
+  </a>
+
+    <a href="panel.html">
+    <button class="tab" data-tab="report">📅 Отчет</button>
+  </a>
+  </nav>
+
+  <section class="notifications">
+    <p id="contractAlert">🔔 Нет сотрудников с истекающим договором в ближайшие 30 дней.</p>
+  </section>
+
+  <section class="filters">
+    <h2>Фильтр сотрудников</h2>
+    <form id="filterForm">
+      <input type="date" name="startDate" placeholder="Дата начала">
+      <input type="date" name="endDate" placeholder="Дата окончания">
+      <select name="department">
+        <option value="">Все отделы</option>
+        <option value="1">Отдел 1</option>
+        <option value="2">Отдел 2</option>
+      </select>
+      <select name="contractType">
+        <option value="">Все типы</option>
+        <option value="договор">Договор</option>
+        <option value="контракт">Контракт</option>
+      </select>
+      <button type="submit">Показать</button>
+    </form>
+  </section>
+
+  <section class="results">
+    <h2>Список сотрудников</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ф.И.О.</th>
+          <th>Отдел</th>
+          <th>Должность</th>
+          <th>Дата приёма</th>
+          <th>Дата увольнения</th>
+          <th>Тип договора</th>
+          <th>Срок действия</th>
+        </tr>
+      </thead>
+      <tbody id="employeeTable">
+  <tr>
+    <td>Иванов И.И.</td>
+    <td>Бухгалтерия</td>
+    <td>Бухгалтер</td>
+    <td>2022-03-15</td>
+    <td>—</td>
+    <td>Контракт</td>
+    <td>3 года</td>
+  </tr>
+  <tr>
+    <td>Петрова А.С.</td>
+    <td>Отдел кадров</td>
+    <td>HR-менеджер</td>
+    <td>2023-01-10</td>
+    <td>2025-09-30</td>
+    <td>Договор</td>
+    <td>2 года</td>
+  </tr>
+  <tr>
+    <td>Сидоров В.В.</td>
+    <td>ИТ</td>
+    <td>Разработчик</td>
+    <td>2021-06-01</td>
+    <td>—</td>
+    <td>Контракт</td>
+    <td>5 лет</td>
+  </tr>
+  <tr>
+    <td>Кузнецова Е.Н.</td>
+    <td>Маркетинг</td>
+    <td>Аналитик</td>
+    <td>2024-02-20</td>
+    <td>—</td>
+    <td>Договор</td>
+    <td>1 год</td>
+  </tr>
+  <tr>
+    <td>Морозов А.Д.</td>
+    <td>Продажи</td>
+    <td>Менеджер</td>
+    <td>2020-09-01</td>
+    <td>2023-09-01</td>
+    <td>Контракт</td>
+    <td>3 года</td>
+  </tr>
+</tbody>
+
+    </table>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
